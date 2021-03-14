@@ -1,0 +1,522 @@
+{
+	"compiler": {
+		"version": "0.4.22+commit.4cb486ee"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"constant": true,
+				"inputs": [
+					{
+						"name": "interfaceID",
+						"type": "bytes4"
+					}
+				],
+				"name": "supportsInterface",
+				"outputs": [
+					{
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"payable": false,
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"constant": true,
+				"inputs": [],
+				"name": "name",
+				"outputs": [
+					{
+						"name": "_name",
+						"type": "string"
+					}
+				],
+				"payable": false,
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"constant": true,
+				"inputs": [
+					{
+						"name": "_tokenId",
+						"type": "uint256"
+					}
+				],
+				"name": "getApproved",
+				"outputs": [
+					{
+						"name": "",
+						"type": "address"
+					}
+				],
+				"payable": false,
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"constant": false,
+				"inputs": [
+					{
+						"name": "_approved",
+						"type": "address"
+					},
+					{
+						"name": "_tokenId",
+						"type": "uint256"
+					}
+				],
+				"name": "approve",
+				"outputs": [],
+				"payable": false,
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"constant": true,
+				"inputs": [],
+				"name": "totalSupply",
+				"outputs": [
+					{
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"payable": false,
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"constant": false,
+				"inputs": [
+					{
+						"name": "_from",
+						"type": "address"
+					},
+					{
+						"name": "_to",
+						"type": "address"
+					},
+					{
+						"name": "_tokenId",
+						"type": "uint256"
+					}
+				],
+				"name": "transferFrom",
+				"outputs": [],
+				"payable": false,
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"constant": true,
+				"inputs": [
+					{
+						"name": "_owner",
+						"type": "address"
+					},
+					{
+						"name": "_index",
+						"type": "uint256"
+					}
+				],
+				"name": "tokenOfOwnerByIndex",
+				"outputs": [
+					{
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"payable": false,
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"constant": false,
+				"inputs": [
+					{
+						"name": "_from",
+						"type": "address"
+					},
+					{
+						"name": "_to",
+						"type": "address"
+					},
+					{
+						"name": "_tokenId",
+						"type": "uint256"
+					}
+				],
+				"name": "safeTransferFrom",
+				"outputs": [],
+				"payable": false,
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"constant": true,
+				"inputs": [
+					{
+						"name": "_index",
+						"type": "uint256"
+					}
+				],
+				"name": "tokenByIndex",
+				"outputs": [
+					{
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"payable": false,
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"constant": true,
+				"inputs": [
+					{
+						"name": "_tokenId",
+						"type": "uint256"
+					}
+				],
+				"name": "ownerOf",
+				"outputs": [
+					{
+						"name": "",
+						"type": "address"
+					}
+				],
+				"payable": false,
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"constant": true,
+				"inputs": [
+					{
+						"name": "_owner",
+						"type": "address"
+					}
+				],
+				"name": "balanceOf",
+				"outputs": [
+					{
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"payable": false,
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"constant": false,
+				"inputs": [
+					{
+						"name": "_tokenId",
+						"type": "uint256"
+					}
+				],
+				"name": "burnToken",
+				"outputs": [],
+				"payable": false,
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"constant": true,
+				"inputs": [],
+				"name": "symbol",
+				"outputs": [
+					{
+						"name": "_symbol",
+						"type": "string"
+					}
+				],
+				"payable": false,
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"constant": false,
+				"inputs": [
+					{
+						"name": "_operator",
+						"type": "address"
+					},
+					{
+						"name": "_approved",
+						"type": "bool"
+					}
+				],
+				"name": "setApprovalForAll",
+				"outputs": [],
+				"payable": false,
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"constant": false,
+				"inputs": [
+					{
+						"name": "_extraTokens",
+						"type": "uint256"
+					}
+				],
+				"name": "issueTokens",
+				"outputs": [],
+				"payable": false,
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"constant": false,
+				"inputs": [
+					{
+						"name": "_from",
+						"type": "address"
+					},
+					{
+						"name": "_to",
+						"type": "address"
+					},
+					{
+						"name": "_tokenId",
+						"type": "uint256"
+					},
+					{
+						"name": "data",
+						"type": "bytes"
+					}
+				],
+				"name": "safeTransferFrom",
+				"outputs": [],
+				"payable": false,
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"constant": true,
+				"inputs": [
+					{
+						"name": "_tokenId",
+						"type": "uint256"
+					}
+				],
+				"name": "tokenURI",
+				"outputs": [
+					{
+						"name": "",
+						"type": "string"
+					}
+				],
+				"payable": false,
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"constant": true,
+				"inputs": [
+					{
+						"name": "_owner",
+						"type": "address"
+					},
+					{
+						"name": "_operator",
+						"type": "address"
+					}
+				],
+				"name": "isApprovedForAll",
+				"outputs": [
+					{
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"payable": false,
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"name": "_initialSupply",
+						"type": "uint256"
+					},
+					{
+						"name": "_name",
+						"type": "string"
+					},
+					{
+						"name": "_symbol",
+						"type": "string"
+					},
+					{
+						"name": "_uriBase",
+						"type": "string"
+					}
+				],
+				"payable": false,
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"name": "_from",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"name": "_to",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"name": "_tokenId",
+						"type": "uint256"
+					}
+				],
+				"name": "Transfer",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"name": "_owner",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"name": "_approved",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"name": "_tokenId",
+						"type": "uint256"
+					}
+				],
+				"name": "Approval",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"name": "_owner",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"name": "_operator",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"name": "_approved",
+						"type": "bool"
+					}
+				],
+				"name": "ApprovalForAll",
+				"type": "event"
+			}
+		],
+		"devdoc": {
+			"methods": {}
+		},
+		"userdoc": {
+			"methods": {}
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"localhost/CarmenereFull.sol": "CarmenereFull"
+		},
+		"evmVersion": "byzantium",
+		"libraries": {},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"localhost/Carmenere.sol": {
+			"keccak256": "0x55302b43094afe10c64dea4915980ea3c0a5bac7d74e522ed6dbb811d665133f",
+			"urls": [
+				"bzzr://49b6cf26ac0272c3654ec5bd6d214607e28b92270c6bdb6f8450a4aacb30068e"
+			]
+		},
+		"localhost/CarmenereEnumerable.sol": {
+			"keccak256": "0x4b4bbe1010a4d3e3ad58d397055c032ea3aad2a37c5dbf1b07b1effd0a888d04",
+			"urls": [
+				"bzzr://5346dde3077ad91b8e73a3d97c5096d6aa239f2f89e3061f5baad9064f9a3f51"
+			]
+		},
+		"localhost/CarmenereFull.sol": {
+			"keccak256": "0x5a59129e7966e310c8f8935145cec9d2381d610187c41996514835661eb8a7d2",
+			"urls": [
+				"bzzr://044e08ce7e8213d638db2b0165acb8e546dbb81d43227bc5d4dc42db679b42ea"
+			]
+		},
+		"localhost/CarmenereMetadata.sol": {
+			"keccak256": "0x2419c0474d659efac8c1bc3502f39186b47f3242374605dd99359bb44dd0fcb4",
+			"urls": [
+				"bzzr://fe45d3952e53eb9400efed65e813f786e910612d91a170e53bfdbc4cb2d91cbd"
+			]
+		},
+		"localhost/ValidaERC165.sol": {
+			"keccak256": "0x0e6a5c85f770c3011d25cec8076b444d2467ce8a6bb0972a4a2b11e998e663d7",
+			"urls": [
+				"bzzr://8a314fdfffd716a15eee83ed5c92b0dba5a62266b9c46708d74c4eae346f3a69"
+			]
+		},
+		"localhost/interface/IERC165.sol": {
+			"keccak256": "0x97df3bfe1675c2c99b19233fd9fa240ce345b8119aacd7423214deb8ad0b7e5e",
+			"urls": [
+				"bzzr://c08b0525c3af1072f0303648f1283a7a9ef4ac75597e943670e19849842561f3"
+			]
+		},
+		"localhost/interface/IERC721.sol": {
+			"keccak256": "0x33191d7ebd9a09b1da68a1a451c857e060e01f84932a23ca20bf11e8a9700763",
+			"urls": [
+				"bzzr://bff956e09c8516371d797a6fb0ce59d14d5d120c15f859f257b5ee0237ad2671"
+			]
+		},
+		"localhost/interface/IERC721Enumerable.sol": {
+			"keccak256": "0xcff02c0682adea6860c819aa345e8c79ad1c56b70ca55faa3839bab94a82d6ae",
+			"urls": [
+				"bzzr://7f01ebcff2380abad878de061d89216412216adc2f75be132427b3207383db49"
+			]
+		},
+		"localhost/interface/IERC721Metadata.sol": {
+			"keccak256": "0x61b439400784b710ad81fa8bbfc0c53c5f51063ee5de6887861ff0ea253a2ff7",
+			"urls": [
+				"bzzr://11dfc8896c676cd1b4db7b33e22650503f4494e56bd74bce88e60dd106fc1388"
+			]
+		},
+		"localhost/interface/IERC721Receiver.sol": {
+			"keccak256": "0x8afcc163225b20f21e2b55ee572630ed68a4056c0779adddb8001d97992726b3",
+			"urls": [
+				"bzzr://312864e521a5864e1161a94f91f155b808e21b787bf80c28ffaa02983859d272"
+			]
+		},
+		"localhost/libreria/SafeMath.sol": {
+			"keccak256": "0xf0d4414afc52bcd6f9a6da4c049c56f3cf92ed6b7ac44d89886cd8902bddffe1",
+			"urls": [
+				"bzzr://542590240ff54d5c342e3b6725260ed48ea3845ccaa5d68f71939be335889c5a"
+			]
+		}
+	},
+	"version": 1
+}

@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+    <script src="https://cdn.jsdelivr.net/gh/ethereum/web3.js@1.0.0-beta.37/dist/web3.min.js"></script> 
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script type="text/javascript">
+    
+  //Instanciar Web3 y nodo Blockchain  
+    var NODO = "https://data-seed-prebsc-1-s1.binance.org:8545";
+    var web3 = new Web3(new Web3.providers.HttpProvider(NODO));
+                       
+//ABI de los Contratos
+        var ABI_CarmenereFull =  [{constant:false,inputs:[{name:"_approved",type:"address"},{name:"_tokenId",type:"uint256"}],name:"approve",outputs:[],payable:false,stateMutability:"nonpayable",type:"function"},{constant:false,inputs:[{name:"_tokenId",type:"uint256"}],name:"burnToken",outputs:[],payable:false,stateMutability:"nonpayable",type:"function"},{constant:false,inputs:[{name:"_extraTokens",type:"uint256"}],name:"issueTokens",outputs:[],payable:false,stateMutability:"nonpayable",type:"function"},{constant:false,inputs:[{name:"_from",type:"address"},{name:"_to",type:"address"},{name:"_tokenId",type:"uint256"}],name:"safeTransferFrom",outputs:[],payable:false,stateMutability:"nonpayable",type:"function"},{constant:false,inputs:[{name:"_from",type:"address"},{name:"_to",type:"address"},{name:"_tokenId",type:"uint256"},{name:"data",type:"bytes"}],name:"safeTransferFrom",outputs:[],payable:false,stateMutability:"nonpayable",type:"function"},{constant:false,inputs:[{name:"_operator",type:"address"},{name:"_approved",type:"bool"}],name:"setApprovalForAll",outputs:[],payable:false,stateMutability:"nonpayable",type:"function"},{anonymous:false,inputs:[{indexed:true,name:"_from",type:"address"},{indexed:true,name:"_to",type:"address"},{indexed:false,name:"_tokenId",type:"uint256"}],name:"Transfer",type:"event"},{anonymous:false,inputs:[{indexed:true,name:"_owner",type:"address"},{indexed:true,name:"_approved",type:"address"},{indexed:false,name:"_tokenId",type:"uint256"}],name:"Approval",type:"event"},{anonymous:false,inputs:[{indexed:true,name:"_owner",type:"address"},{indexed:true,name:"_operator",type:"address"},{indexed:false,name:"_approved",type:"bool"}],name:"ApprovalForAll",type:"event"},{constant:false,inputs:[{name:"_from",type:"address"},{name:"_to",type:"address"},{name:"_tokenId",type:"uint256"}],name:"transferFrom",outputs:[],payable:false,stateMutability:"nonpayable",type:"function"},{inputs:[{name:"_initialSupply",type:"uint256"},{name:"_name",type:"string"},{name:"_symbol",type:"string"},{name:"_uriBase",type:"string"}],payable:false,stateMutability:"nonpayable",type:"constructor"},{constant:true,inputs:[{name:"_owner",type:"address"}],name:"balanceOf",outputs:[{name:"",type:"uint256"}],payable:false,stateMutability:"view",type:"function"},{constant:true,inputs:[{name:"_tokenId",type:"uint256"}],name:"getApproved",outputs:[{name:"",type:"address"}],payable:false,stateMutability:"view",type:"function"},{constant:true,inputs:[{name:"_owner",type:"address"},{name:"_operator",type:"address"}],name:"isApprovedForAll",outputs:[{name:"",type:"bool"}],payable:false,stateMutability:"view",type:"function"},{constant:true,inputs:[],name:"name",outputs:[{name:"_name",type:"string"}],payable:false,stateMutability:"view",type:"function"},{constant:true,inputs:[{name:"_tokenId",type:"uint256"}],name:"ownerOf",outputs:[{name:"",type:"address"}],payable:false,stateMutability:"view",type:"function"},{constant:true,inputs:[{name:"interfaceID",type:"bytes4"}],name:"supportsInterface",outputs:[{name:"",type:"bool"}],payable:false,stateMutability:"view",type:"function"},{constant:true,inputs:[],name:"symbol",outputs:[{name:"_symbol",type:"string"}],payable:false,stateMutability:"view",type:"function"},{constant:true,inputs:[{name:"_index",type:"uint256"}],name:"tokenByIndex",outputs:[{name:"",type:"uint256"}],payable:false,stateMutability:"view",type:"function"},{constant:true,inputs:[{name:"_owner",type:"address"},{name:"_index",type:"uint256"}],name:"tokenOfOwnerByIndex",outputs:[{name:"",type:"uint256"}],payable:false,stateMutability:"view",type:"function"},{constant:true,inputs:[{name:"_tokenId",type:"uint256"}],name:"tokenURI",outputs:[{name:"",type:"string"}],payable:false,stateMutability:"view",type:"function"},{constant:true,inputs:[],name:"totalSupply",outputs:[{name:"",type:"uint256"}],payable:false,stateMutability:"view",type:"function"}];
+
+//Direccion del cotrato
+        var AddressCarmereFull = "0x62e64A10C51d3FC8e69FDA3C29a73CCc5376C4ac";
+
+
+//se recupera contrato con su direccion
+        var CarmenereTracking = new web3.eth.Contract(ABI_CarmenereFull, AddressCarmereFull);
+
+//Consultas 
+
+            function IDisponibilidad(){
+              CarmenereTracking.methods.name().call((err, result) => { console.log (result)
+              $(".IDisp1").text("Proyecto = " + result) }) 
+              CarmenereTracking.methods.totalSupply().call((err, result) => { console.log (result)
+              $(".IDisp2").text("Botellas Disponibles = " + result) }) 
+              CarmenereTracking.methods.symbol().call((err, result) => { console.log (result)
+              $(".IDisp3").text("Simbolo Blockchain = " + result) })
+            }
+
+            function IBotella(){
+              VIdbote=$("#DBotella").val();
+              CarmenereTracking.methods.tokenURI(VIdbote).call((err, result) => {console.log(result)
+             if(!err)
+                {
+                  $("#IBote1").text("Certificado = "+ result);
+                  }
+            else
+                  $("#IBote1").text("");
+               })
+                        
+              CarmenereTracking.methods.ownerOf(VIdbote).call((err, result) => {console.log(result)
+                if(!err)
+                {
+                  $("#IBote2").text("Direccion del propietario = " + result );
+                }
+                else
+                  $("#IBote2").text("Botella no existe" );
+                })  
+                        
+                        }
+          
+            function IBalance(){
+              Vaddress=$("#DBalance").val();
+              CarmenereTracking.methods.balanceOf(Vaddress).call((err, result) => {console.log(result)
+                  $("#IBal1").text("Dueño de " + result + " botellas");
+                })
+                                }
+
+
+            function IBurn(){
+             Vaddress2=$("#DOwner2").val();
+              VIdbote2=$("#DBotella2").val();
+              CarmenereTracking.methods.burnToken(VIdbote2).send({from: Vaddress2, gas: 120000 } );
+                $("#IBote3").text("Botella eliminada" );
+
+            }
+
+            function ICreate(){
+             Vaddress3=$("#DOwner3").val();
+              VIdbote3=$("#DBotella3").val();
+              CarmenereTracking.methods.issueTokens(VIdbote3).send({from: Vaddress3, gas: 100000000 }); 
+                $("#IBote4").text("Botellas creadas");
+            }
+
+
+            function ITransfer(){
+             VaddressE=$("#DOwner4").val();
+              VaddressR=$("#DOwner5").val();
+               VIdbote4=$("#DBotellas4").val();
+              CarmenereTracking.methods.transferFrom(VaddressE, VaddressR, VIdbote4).send({from: VaddressE, gas: 200000 }); 
+                $("#IBote5").text("Transferido");
+            }
+
+            function ITraking(){
+              Vaddress4=$("#DOwner7").val();
+                VIdbote5=$("#DBotellas5").val();
+                 var idToOwner = {};
+              
+              CarmenereTracking.getPastEvents('Transfer', {filter: {_to: Vaddress4, _tokenId: VIdbote5 },fromBlock: 0, toBlock: 'latest'}).then(events => {
+              events.forEach(event => {
+                idToOwner[event.returnValues._tokenId] = event.returnValues._from
+                $("#IBote6").text(idToOwner[event.returnValues._tokenId] = event.returnValues._from + " = Dueño anterior");
+              });
+              console.log(idToOwner);
+             
+            });
+            
+                }
+
+    </script>
+
+  </head> 
+      <body>
+
+        <h1 style="font-family:verdana; text-align:center; color:maroon" >CARMENERE TRACEABILITY WINE</h1>
+
+
+            <input type="button" style="background-color:skyblue" name="IDisponibilidad" value="INFORMACION GENERAL" onclick="IDisponibilidad()">
+            <div class="IDisp1"></div>
+            <div class="IDisp2"></div>
+            <div class="IDisp3"></div>
+            
+            <input type="text" id="DBotella" placeholder="id botella" >
+            <input type="button" style="background-color:skyblue" name="IBotella" value="INFORMACION BOTELLA" onclick="IBotella()">
+            <div id="IBote2"></div>
+            <div id="IBote1"></div>
+            
+
+            <input type="text" id="DBalance" placeholder="dirección" >
+            <input type="button" style="background-color:skyblue" name="IBalance" value="BOTELLAS EN POSESION" onclick="IBalance()">
+            <div id="IBal1"></div>
+
+            <input type="text" id="DOwner2" placeholder="dirección dueño" >
+            <input type="text" id="DBotella2" placeholder="id botella" >
+            <input type="button" style="background-color:skyblue" name="IBurn" value="ELIMINAR BOTELLAS" onclick="IBurn()">
+            <div id="IBote3"></div>
+
+            <input type="text" id="DOwner3" placeholder="dirección creador" >
+            <input type="text" id="DBotella3" placeholder="cantidad" >
+            <input type="button" style="background-color:skyblue" name="ICreate" value="CREAR BOTELLAS" onclick="ICreate()">
+            <div id="IBote4"></div>
+
+            <input type="text" id="DOwner4" placeholder="dirección origen" >
+            <input type="text" id="DOwner5" placeholder="dirección destino" >
+            <input type="text" id="DBotellas4" placeholder="id botella" >
+            <input type="button" style="background-color:skyblue" name="ITransfer" value="TRANSFERIR BOTELLA" onclick="ITransfer()">
+            <div id="IBote5"></div>
+
+            <input type="text" id="DOwner6" placeholder="dirección propietario" >
+            <input type="text" id="DBotellas4" placeholder="id botella" >
+            <input type="button" style="background-color:skyblue" name="ITransfer2" value="DUEÑO ANTERIOR" onclick="ITraking()">
+            <div id="IBote6"></div>
+
+      </body>                    
+</html>
